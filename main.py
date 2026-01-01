@@ -425,6 +425,7 @@ wave = data_to_soundwave(data)
 
 write_mp3("output.mp3", wave, sample_rate)
 
-sd.play(wave, samplerate=sample_rate)
-sd.wait()
+if "--play" in sys.argv or "-p" in sys.argv:
+    sd.play(wave, samplerate=sample_rate)
+    sd.wait()
 
