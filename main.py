@@ -3,6 +3,8 @@ import sounddevice as sd
 import math
 import re
 import numpy.typing as npt
+import sys
+
 
 wave_points = []
 
@@ -389,7 +391,7 @@ def data_to_soundwave(data: dict) -> npt.NDArray[np.float32]:
     
     return np.array(wave, dtype=np.float32)
 
-data = parse_data(open("examples/SevenNationArmy.music").read())
+data = parse_data(open(sys.argv[1]).read())
 print(data)
 
 sd.play(data_to_soundwave(data), samplerate=sample_rate)

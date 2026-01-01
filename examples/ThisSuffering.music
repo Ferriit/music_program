@@ -1,0 +1,35 @@
+# This suffering by Billy Talent
+
+bpm 161
+tsu 4
+tsl 4
+
+[loop1]
+vol 100
+wave sin
+mes 4
+
+fx;
+dist 1
+decay 1
+ring 1
+ext;
+
+ton 
+32 17 36 17 32 p
+31 15 34 15 37 p
+25 10 29 10 31 34
+20 19 17 15 5
+
+len 
+8 8 8 8 4. 8
+8 8 8 8 4. 8
+8 8 8 8 8 8 4
+8 8 8 8 2
+
+end
+
+[def]
+loop1 1
+end
+
