@@ -1,0 +1,26 @@
+bpm 124 
+tsu 4 
+tsl 4 
+
+[loop1]
+vol 100 
+wave sin 
+mes 2 
+
+fx; 
+dist 5 
+decay 1 
+ring 0 
+ext; 
+
+ton 7 7 10 7 5 3 2 p 
+len 4. 8 8. 8. 8 2 4 4 
+
+end
+
+[def]
+loop1 5 
+
+end
+
+
