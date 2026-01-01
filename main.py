@@ -4,6 +4,8 @@ import math
 import re
 import numpy.typing as npt
 import sys
+import soundfile as sf
+import subprocess
 
 
 wave_points = []
@@ -391,9 +393,38 @@ def data_to_soundwave(data: dict) -> npt.NDArray[np.float32]:
     
     return np.array(wave, dtype=np.float32)
 
+
+def write_mp3(filename, wave, samplerate):
+    # Ensure float32 and safe range
+    wave = np.asarray(wave, dtype=np.float32)
+    peak = np.max(np.abs(wave))
+    if peak > 1:
+        wave /= peak
+
+    # Write temp WAV
+    sf.write("temp.wav", wave, samplerate)
+
+    # Convert to MP3
+    subprocess.run([
+        "ffmpeg",
+        "-y",
+        "-loglevel", "error",
+        "-i", "temp.wav",
+        "-codec:a", "libmp3lame",
+        "-b:a", "192k",
+        filename
+    ], check=True)
+
+
+
+
 data = parse_data(open(sys.argv[1]).read())
 print(data)
 
-sd.play(data_to_soundwave(data), samplerate=sample_rate)
+wave = data_to_soundwave(data)
+
+write_mp3("output.mp3", wave, sample_rate)
+
+sd.play(wave, samplerate=sample_rate)
 sd.wait()
 

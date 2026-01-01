@@ -12,13 +12,12 @@ mes 4
 fx;
 dist 1
 decay 1
-ring 1
 ext;
 
 ton 
 32 17 36 17 32 p
 31 15 34 15 37 p
-25 10 29 10 31 34
+25 17 29 17 31 17 34
 20 19 17 15 5
 
 len 
@@ -30,6 +29,6 @@ len
 end
 
 [def]
-loop1 1
+loop1 4
 end
 

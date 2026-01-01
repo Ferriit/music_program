@@ -5,7 +5,7 @@ tsu 4
 tsl 4
 
 [riffp1]
-vol 150
+vol 200
 wave tri
 mes 1
 
@@ -21,7 +21,7 @@ len 2 8 8 8 8
 end
 
 [loop1]
-vol 150
+vol 200
 wave tri # Options: Sin, Squ, Saw, Tri
 mes 2
 
